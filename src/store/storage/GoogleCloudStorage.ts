@@ -5,7 +5,7 @@ import {
   deleteDriveFile,
   getDriveFile,
   updateDriveFileDebounced,
-  validateGoogleOath2AccessToken,
+  validateGoogleOAuth2AccessToken,
 } from '@api/google-api';
 
 const createGoogleCloudStorage = <S>(): PersistStorage<S> | undefined => {
@@ -14,7 +14,7 @@ const createGoogleCloudStorage = <S>(): PersistStorage<S> | undefined => {
   if (!accessToken || !fileId) return;
 
   try {
-    const authenticated = validateGoogleOath2AccessToken(accessToken);
+    const authenticated = validateGoogleOAuth2AccessToken(accessToken);
     if (!authenticated) return;
   } catch (e) {
     // prevent error if the storage is not defined (e.g. when server side rendering a page)

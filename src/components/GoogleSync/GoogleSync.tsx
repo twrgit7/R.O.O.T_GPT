@@ -9,7 +9,7 @@ import {
   createDriveFile,
   deleteDriveFile,
   updateDriveFileName,
-  validateGoogleOath2AccessToken,
+  validateGoogleOAuth2AccessToken,
 } from '@api/google-api';
 import { getFiles, stateToFile } from '@utils/google-api';
 import createGoogleCloudStorage from '@store/storage/GoogleCloudStorage';
@@ -40,7 +40,7 @@ const GoogleSync = ({ clientId }: { clientId: string }) => {
   const [files, setFiles] = useState<GoogleFileResource[]>([]);
 
   const initialiseState = async (_googleAccessToken: string) => {
-    const validated = await validateGoogleOath2AccessToken(_googleAccessToken);
+    const validated = await validateGoogleOAuth2AccessToken(_googleAccessToken);
     if (validated) {
       try {
         const _files = await getFiles(_googleAccessToken);
