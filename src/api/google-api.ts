@@ -165,7 +165,7 @@ export const deleteDriveFile = async (fileId: string, accessToken: string) => {
   }
 };
 
-export const validateGoogleOath2AccessToken = async (accessToken: string) => {
+export const validateGoogleOAuth2AccessToken = async (accessToken: string) => {
   const response = await fetch(
     `https://oauth2.googleapis.com/tokeninfo?access_token=${accessToken}`
   );
